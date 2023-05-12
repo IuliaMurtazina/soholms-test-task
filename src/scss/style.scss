@@ -1,0 +1,268 @@
+$color-main-gray: #9e9e9e;
+$color-light-gray: #d2d2d2;
+$color-light-gray-2: #e7e7e7;
+$color-input-active: #77acd0;
+$color-button: #0581ff;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  max-width: 144rem;
+  margin: 0 auto;
+  font-size: 1.7rem;
+  font-weight: 400;
+  background-color: $color-main-gray;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+.form {
+  max-width: 40rem;
+  margin: auto;
+  padding: 1.5rem;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+
+  &__title {
+    text-align: center;
+  }
+
+  &__information {
+    display: flex;
+    gap: 1rem;
+
+    @media screen and (max-width: 400px) {
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+  }
+
+  &__button {
+    padding: 1.5rem;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.7rem;
+    color: #fff;
+    background-color: $color-button;
+    align-self: center;
+    cursor: pointer;
+  }
+}
+
+.form-group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+
+  &__label {
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    color: $color-main-gray;
+    margin-bottom: .5rem;
+  }
+
+  &__input {
+    height: 4.4rem;
+    padding: 1.5rem;
+    border-radius: 4px;
+    outline: none;
+    font-size: 1.6rem;
+    border: 1px solid $color-main-gray;
+    width: 100%;
+
+    &:focus {
+      border: 1px solid $color-input-active;
+    }
+
+    &::placeholder {
+      font-size: 1.6rem;
+      color: $color-light-gray;
+    }
+  }
+}
+
+.professions,
+.country-list {
+  &::-webkit-scrollbar {
+    width: 1rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    height: 3rem;
+    border-radius: 50px;
+    border: 3px solid transparent;
+    background-clip: padding-box;
+  }
+}
+
+.professions {
+  list-style: none;
+  padding-top: 1rem;
+  border: 1px solid $color-main-gray;
+  border-top: none;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  transform: translateY(-30px);
+  max-height: 9rem;
+  // min-height: 5rem;
+  overflow-y: scroll;
+  margin-bottom: -25px;
+  font-size: 14px;
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $color-light-gray;
+  }
+
+  &__item,
+  &__item--empty {
+    padding: 1rem 1.5rem;
+  }
+
+  &__item {
+    &:hover {
+      background-color: $color-light-gray;
+    }
+  }
+
+  &__item-hide {
+    display: none;
+  }
+}
+
+.hidden {
+  display: none !important;
+}
+
+.abc {
+  width: 400px;
+  margin: 0 auto;
+}
+
+#phone {
+  padding-left: 9rem;
+}
+
+.phone-input-group {
+  position: relative;
+}
+
+.country-btn {
+  display: flex;
+  align-items: center;
+  width: 7.5rem;
+  position: absolute;
+  height: 4.2rem;
+  bottom: 1px;
+  left: 1px;
+  padding: 0 1.2rem;
+  border: none;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  background-color: $color-light-gray-2;
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border: solid $color-main-gray;
+    border-width: 2px 0 0 2px;
+    transform: rotate(-135deg);
+    position: absolute;
+    left: 70%;
+    top: 35%;
+  }
+}
+
+.country-list {
+  margin-top: -2px;
+  list-style: none;
+  top: 6.6rem;
+  background-color: $color-light-gray-2;
+  display: flex;
+  flex-direction: column;
+  height: 10rem;
+  overflow-y: scroll;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $color-main-gray;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem 0.9rem 1.5rem 1.3rem;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $color-main-gray;
+    }
+
+    span {
+      font-size: 1.4rem;
+      color: $color-main-gray;
+    }
+
+    &:hover span {
+      color: #000;
+    }
+  }
+
+  .country-name {
+    margin: 0 .5rem 0 1rem;
+  }
+}
+
+.overlay {
+  position: fixed;
+  background: rgba($color: #000000, $alpha: .4);
+  width: 100%;
+  height: 100vh;
+  z-index: 5;
+}
+
+.popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  padding: 4rem 2rem;
+  background-color: #fff;
+  border-radius: 1rem;
+  border: 2px solid $color-input-active;
+
+  &__сlose {
+    position: absolute;
+    top: 5px;
+    right: 8px;
+    cursor: pointer;
+  }
+}
