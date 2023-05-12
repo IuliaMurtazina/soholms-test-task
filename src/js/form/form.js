@@ -24,13 +24,14 @@ const closePopup = () => {
   popup.classList.add("hidden");
 };
 
-const submitFormHandler = () => {
+const submitFormHandler = (e) => {
+  e.preventDefault();
   const emptyInputs = inputs.some((input) => input.value.trim() === "");
   if (emptyInputs) {
     showPopup("Заполните все поля.");
     return;
   }
-  
+
   inputs.forEach((input) => (input.value = ""));
   phoneInput.value = selectedCountry.dataset.code;
 
